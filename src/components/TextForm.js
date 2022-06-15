@@ -5,6 +5,7 @@ export default function TextForm(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to upper case" ,"success");
     }
 
 
@@ -12,6 +13,7 @@ export default function TextForm(props) {
         
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to Lower case" ,"success");
     }
 
 
@@ -19,6 +21,7 @@ export default function TextForm(props) {
         
         let newText = text.charAt(0).toUpperCase() + text.slice(1);
         setText(newText);
+        props.showAlert("Capitalized the first letter." ,"success");
     }
     const handleInClick = () => {
         
@@ -28,6 +31,7 @@ export default function TextForm(props) {
 
         }
         setText(newText);
+        props.showAlert("Inversed the given text." ,"success");
     }
     const handleDowClick = () => {
         const element = document.createElement("a");
@@ -38,6 +42,7 @@ export default function TextForm(props) {
         element.download = "myFile.txt";
         document.body.appendChild(element);
         element.click();
+        props.showAlert("downloaded the text you entered." ,"success");
 
 
 
@@ -49,7 +54,8 @@ export default function TextForm(props) {
        /* Copy the text inside the text field */
         navigator.clipboard.writeText(newText.value);
         // setText(newText);
-        alert("Copied the text: " + newText.value)/* Alert the copied text */
+        //alert("Copied the text: " + newText.value)/* Alert the copied text */
+        props.showAlert("Copied the text you entered","success");
     }
 
     const handleReClick = () => {

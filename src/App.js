@@ -21,12 +21,14 @@ function App() {
       settextColor('dark');
       setBtnText('Enable Light Mode');
       document.body.style.backgroundColor = '#042743';
+      showAlert("Dark mode has been enables", "success")
     }
     else{
       setMode('dark');
       settextColor('light');
       setBtnText('Enable Dark Mode');
       document.body.style.backgroundColor = '#f8f9fa';
+      showAlert("Light mode has been enables", "success")
     }
   }
   return (
@@ -34,7 +36,7 @@ function App() {
       <Navbar  title="Versatile" mode={mode} textColor={textColor} toggleMode ={toggleMode} btntext={btntext} />
       <Alert  alert={alert}/>
       <div className="container">
-      <TextForm heading = "Enter the text for analysing" textColor={textColor}/>
+      <TextForm showAlert = {showAlert} heading = "Enter the text for analysing" textColor={textColor}/>
       </div>
         {/* <div className="container">
           <About />
