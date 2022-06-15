@@ -13,6 +13,8 @@ export default function TextForm(props) {
         let newText = text.toLowerCase();
         setText(newText);
     }
+
+
     const handleCaClick = () => {
         
         let newText = text.charAt(0).toUpperCase() + text.slice(1);
@@ -44,8 +46,7 @@ export default function TextForm(props) {
         
         let newText = document.getElementById("myBox"); /* Get the text field */
         newText.select();   /* Select the text field */
-        newText.setSelectionRange(0, 99999); /* Select the text field */ /* For mobile devices */
-        /* Copy the text inside the text field */
+       /* Copy the text inside the text field */
         navigator.clipboard.writeText(newText.value);
         // setText(newText);
         alert("Copied the text: " + newText.value)/* Alert the copied text */
@@ -69,10 +70,11 @@ export default function TextForm(props) {
     const [text, setText] = useState("");
     return (
         <>
-            <div className='container'>
+            <div className='container my-3' style={{color: props.textColor==='light'?'black':'white'}}>
+
                 <h1>{props.heading}</h1>
                 <div className="form-group my-3">
-                    <textarea className="form-control bg-dark text-white" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
+                    <textarea className="form-control" value={text}  onChange={handleOnChange} id="myBox" rows="8" style={{backgroundColor:props.mode === 'dark'? 'white': 'grey',color: props.textColor==='light'?'black':'white'}}></textarea>
                 </div>
                 <button className="btn btn-success mx-1" onClick={handleUpClick}>Convert to Uppercase</button>
                 <button className="btn btn-success mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
@@ -82,12 +84,12 @@ export default function TextForm(props) {
                 <button className="btn btn-success mx-1" onClick={handleCpyClick}>Copy To Clipboard</button>
                 <button className="btn btn-success mx-1" onClick={handleReClick}>Reset</button>
             </div>
-            <div className="container my-5">
+            <div className="container my-5" style={{color: props.textColor==='light'?'black':'white'}}>
                 <h2>Text Summery</h2>
                 <p>{text.split(" ").length - 1} Words and {text.length} Characters</p>
                 <p>{.008 * text.split(" ").length} Minutes to read. </p>
                 <h2>Preview</h2>
-                <p>{text}</p>
+                <p>{text.length>0 ?text:"Enter something in the text box above to preview here"}</p>
             </div>
         </>
 
