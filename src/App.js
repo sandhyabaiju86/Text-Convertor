@@ -14,14 +14,29 @@ function App() {
       msg:message,
       type:type
     })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
   }
+
+  const removeBodyClasses =()=>{
+    document.body.classList.remove('bg-primary')
+    document.body.classList.remove('bg-secondary')
+    document.body.classList.remove('bg-success')
+    document.body.classList.remove('bg-danger')
+    document.body.classList.remove('bg-warining')
+  }
+  
   const toggleMode = ()=>{
+    removeBodyClasses();
+    //document.body.classList.add('bg-'+ cls)
     if (mode==='dark') {
       setMode ('light');
       settextColor('dark');
       setBtnText('Enable Light Mode');
       document.body.style.backgroundColor = '#042743';
       showAlert("Dark mode has been enables", "success")
+      document.title =" TextUtils | Dark Mode";
     }
     else{
       setMode('dark');
@@ -29,11 +44,12 @@ function App() {
       setBtnText('Enable Dark Mode');
       document.body.style.backgroundColor = '#f8f9fa';
       showAlert("Light mode has been enables", "success")
+      document.title =" TextUtils | Light Mode";
     }
   }
   return (
     <>
-      <Navbar  title="Versatile" mode={mode} textColor={textColor} toggleMode ={toggleMode} btntext={btntext} />
+      <Navbar  title="TextUtils" mode={mode} textColor={textColor} toggleMode ={toggleMode} btntext={btntext}  />
       <Alert  alert={alert}/>
       <div className="container">
       <TextForm showAlert = {showAlert} heading = "Enter the text for analysing" textColor={textColor}/>

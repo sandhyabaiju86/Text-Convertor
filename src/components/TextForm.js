@@ -55,13 +55,14 @@ export default function TextForm(props) {
         navigator.clipboard.writeText(newText.value);
         // setText(newText);
         //alert("Copied the text: " + newText.value)/* Alert the copied text */
-        props.showAlert("Copied the text you entered","success");
+        props.showAlert("Copied the text you entered to clipboard","success");
     }
-
+    
     const handleReClick = () => {
         
         let newText = "";
         setText(newText);
+        props.showAlert("Text Cleared ","success");
     }
 
 

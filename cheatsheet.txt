@@ -1,3 +1,4 @@
+git
 touch .gitignore
 git config --global user.name "Sandhya baiju"
 git config --global user.email "sandhyacc8679@gmail.com"

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 export default function Navbar(props) {
   return (
-  <>
+  
     <nav className={`navbar navbar-expand-lg bg-${props.mode} navbar-${props.mode}`} >
   <div className="container-fluid ">
     <a className={`navbar-brand text-${props.textColor}`} href="/">{props.title}</a>
@@ -19,9 +19,12 @@ export default function Navbar(props) {
           <a className={`nav-link text-${props.textColor}`} href="/">{props.aboutText}</a>
         </li>
        </ul>
-      {/* <form className="d-flex" role="search">
-        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button className="btn btn-outline-success" type="submit">Search</button> */}
+       {/* <div className="bg-primary rounded mx-2" onClick={()=>{props.toggleMode('primary')}} style={{width:'30px',height:'30px',cursor:'pointer'}}></div>
+       <div className="bg-secondary rounded mx-2" onClick={()=>{props.toggleMode('secondary')}} style={{width:'30px',height:'30px',cursor:'pointer'}}></div>
+       <div className="bg-success rounded mx-2" onClick={()=>{props.toggleMode('success')}} style={{width:'30px',height:'30px',cursor:'pointer'}}></div>
+       <div className="bg-danger rounded mx-2" onClick={()=>{props.toggleMode('danger')}} style={{width:'30px',height:'30px',cursor:'pointer'}}></div>
+       <div className="bg-warning rounded mx-2" onClick={()=>{props.toggleMode('warning')}} style={{width:'30px',height:'30px',cursor:'pointer'}}></div> */}
+       
         <div className={`form-check form-switch text-${props.textColor}`}>
           <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
           <label className="form-check-label" htmlFor="flexSwitchCheckDefault">{props.btntext}</label>
@@ -32,8 +35,6 @@ export default function Navbar(props) {
     </div>
   </div>
 </nav>
-
-</>
   )
 }
 Navbar.prototype = {
